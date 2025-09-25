@@ -1,7 +1,33 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+Estre é um projeto para a disciplina UPXIV da Facens.
 
-## Getting Started
+# Conecta+
+É uma plataforma de Cidade Inteligente e Acessível. Nosso objetivo é empoderar você a explorar a cidade com total autonomia.
 
+Oferecemos informações detalhadas sobre estabelecimentos, garantindo que você saiba onde ir e o que esperar, seja você um cadeirante, um idoso, um pai com carrinho de bebê, ou qualquer pessoa que valoriza a acessibilidade.
+
+## Tecnologias
+Next.js, 
+ApI Leaflet,
+Prisma, Auth.js, Neon
+Vercel
+
+## Estado do projeto
+
+Landing page ✅
+Exibição do mapa de Sorocaba ✅
+Colocar pin com clique ❌
+Login de Usuário & autenticação com Auth.js ❌
+Integração com banco de Dados Neon ❌
+Interface de dados com Prisma ❌
+Subir projeto no Vercel ❌
+
+
+## Planos futuros
+
+Permitir que o usuario escolha qual cidade ele quer ver.
+
+
+### Como usar
 First, run the development server:
 
 ```bash

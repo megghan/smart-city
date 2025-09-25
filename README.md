@@ -21,6 +21,29 @@ Integração com banco de Dados Neon ❌
 Interface de dados com Prisma ❌
 Subir projeto no Vercel ❌
 
+## Próximos passos:
+
+### Banco de Dados e Interface (Prisma e Neon)
+
+Criar conta no Neon e configurar banco de dados
+
+Instalar prisma e configurar o schema.prisma com o modelo para PinAcessibilidade e User
+
+Fazer a primeira migração para aplicar as tabelas no seu banco de dados Neon.
+
+### Login e Autenticação
+
+Instalar o Auth.js
+
+integrar um provedor de login
+
+Proteger as futuras rotas de API para garantir que só aceitem requisições de usuários autenticados
+
+### Colocar pin com clique e API
+
+Criar um Route Handler (API) para a rota POST /api/pins que usa o Prisma para salvar o pin no banco.
+
+No componente do mapa, usar o hook useMapEvents do Leaflet para capturar as coordenadas do clique e enviar para a API.
 
 ## Planos futuros
 

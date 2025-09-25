@@ -49,6 +49,8 @@ No componente do mapa, usar o hook useMapEvents do Leaflet para capturar as coor
 
 Permitir que o usuario escolha qual cidade ele quer ver.
 
+Votação de pins (por relevância do problema/questão)
+
 
 ### Como usar
 First, run the development server:

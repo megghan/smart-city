@@ -6,7 +6,6 @@
 
 generator client {
   provider = "prisma-client-js"
-  output   = "../src/generated/prisma"
 }
 
 datasource db {
@@ -24,7 +23,8 @@ model PinAcessibilidade {
   cidade             String   // Para filtrar os pins por cidade
   
   // No futuro, este campo será conectado ao modelo User do Auth.js
-  // usuarioId          String?  
+  usuarioId          String
+  usuario            User     @relation(fields: [usuarioId], references: [id])  
   
   createdAt          DateTime @default(now())
   updatedAt          DateTime @updatedAt
@@ -70,8 +70,8 @@ model User {
   image         String?
   accounts      Account[]
   sessions      Session[]
-  // Adicione este relacionamento com sua tabela de pins
-  // pins          PinAcessibilidade[] // Você fará isso depois de testar!
+  
+  pins          PinAcessibilidade[]
 }
 
 model VerificationToken {

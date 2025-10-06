@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import { AuthControls } from "./AuthControls";
 
 import {
   Sheet,
@@ -17,7 +18,7 @@ import { LogIn, Menu } from "lucide-react";
 export function Header(){
     const [isOpen, setIsOpen] = useState(false);
 
-    const session = null;
+    //const session = null;
     
     const navItems=[
             { href: "#cidades", label: "Cidades"}
@@ -33,15 +34,7 @@ export function Header(){
         </Button>
     ))}
 
-        {session? (
-            <Link href="/dashboard" className="flex items-center justify-center">
-                Painel
-            </Link>
-        ) : 
-
-        <Button>
-            <LogIn />
-            Fazer Login</Button>}
+        <AuthControls /> 
     </>)
     
     return(

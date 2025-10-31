@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import conectamais from '../../../../public/conectapluss.png';
+import Link from 'next/link';
 
 export function Hero() {
     return(
@@ -39,10 +40,13 @@ export function Hero() {
                 </article>
                 
                 
-                <Button className="mt-8 bg-indigo-600 hover:bg-indigo-700 text-white">
-                    Começar a Explorar
-                </Button>
+                <Link href="#funcionalidades" passHref legacyBehavior>
+                    <Button className="mt-8 bg-indigo-600 hover:bg-indigo-700 text-white">
+                        Começar a Explorar
+                    </Button>
+                </Link>
             </main>
+            
             
         </section>
     )

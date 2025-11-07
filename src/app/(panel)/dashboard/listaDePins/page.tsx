@@ -3,19 +3,11 @@
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { EditPinDialog } from '../_components/editPinDialog';
+import { PinAcessibilidade } from '@prisma/client';
 
-interface Pin {
-  id: string;
-  nome_local: string;
-  descricao: string;
-  endereco: string;
-  createdAt: string;
-  
-  // ... outros campos
-}
-
+type UserPin = PinAcessibilidade; 
 export default function ListaPinsDeUsuario() {
-  const [pins, setPins] = useState<Pin[]>([]);
+  const [pins, setPins] = useState<UserPin[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
 

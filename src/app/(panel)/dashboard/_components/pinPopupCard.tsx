@@ -3,11 +3,11 @@
 
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Pin } from "@/app/(panel)/dashboard/_components/mapa"; // Ajuste o path para sua interface Pin
+import { PinAcessibilidade } from '@prisma/client';
 import { RatingComponent } from "./ratingComponent";
 
 interface PinPopupCardProps {
-    pin: Pin;
+    pin: PinAcessibilidade;
     onRatingSubmit: (pinId: string, value: number) => void;
 }
 

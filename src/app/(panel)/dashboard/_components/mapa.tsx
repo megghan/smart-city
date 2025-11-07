@@ -6,6 +6,7 @@ import 'leaflet/dist/leaflet.css';
 import { useState } from "react";
 import { CreatePinDialog } from "./createPinDialog";
 import { PinPopupCard } from './pinPopupCard'; 
+import { PinAcessibilidade } from '@prisma/client';
 
 //Define o caminho para o ícones
 const ICONE_PERSONALIZADO = L.icon({
@@ -15,18 +16,7 @@ const ICONE_PERSONALIZADO = L.icon({
     popupAnchor:[0,-40]
 });
 
-// Tipagem simples para o pin (para o TypeScript)
-export interface Pin {
-    id: string;
-    latitude: number;
-    longitude: number;
-    descricao: string;
-    tipoAcessibilidade: string;
-    nome_local: string;
-    nota_media: number;
-    contagem_ratings: number;
-    cidade: string;
-}
+
 
 
 //pegando as coordenadas de sorocaba. No futuro tirar o hardcode das coordenadas
@@ -52,7 +42,7 @@ function MapClickHandler({
     return null;
 }
 
-export function MapaDaCidade({pins, onPinCreated }: { pins: Pin[], onPinCreated: () => void }){
+export function MapaDaCidade({pins, onPinCreated }: { pins: PinAcessibilidade[], onPinCreated: () => void }){
     const [isCreateDialogOpen, setIsCreateDialogOpen] = useState(false);
     const [pinCoords, setPinCoords] = useState<{ lat: number; lng: number } | null>(null);
     
@@ -114,7 +104,7 @@ export function MapaDaCidade({pins, onPinCreated }: { pins: Pin[], onPinCreated:
                     </Popup>
                 </Marker>
 
-                {pins.map((pin) =>(
+                {pins.map((pin: PinAcessibilidade) =>(
                     <Marker
                         key={pin.id}
                         position={[pin.latitude, pin.longitude]}

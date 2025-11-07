@@ -3,6 +3,7 @@
 import { PrismaAdapter } from "@auth/prisma-adapter";
 import { AuthOptions } from "next-auth";
 import GitHubProvider from "next-auth/providers/github";
+import GoogleProvider from "next-auth/providers/google";
 // IMPORTANTE: Importamos o cliente Prisma que você criou
 import prisma from "./prisma"; 
 import { Adapter } from "next-auth/adapters";
@@ -19,7 +20,10 @@ export const authOptions: AuthOptions = {
       clientId: process.env.GITHUB_ID!,
       clientSecret: process.env.GITHUB_SECRET!,
     }),
-    // Futuramente, você adicionará outros provedores aqui (Google, etc.)
+    GoogleProvider({
+      clientId: process.env.GOOGLE_CLIENT_ID!,
+      clientSecret: process.env.GOOGLE_CLIENT_SECRET!,
+    }),
   ],
   
   // 3. SECRET: Usa a chave secreta que você gerou para criptografia

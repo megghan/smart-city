@@ -19,6 +19,9 @@ export function Sidebar() {
     return (
         <aside className="w-64 bg-gray-50 border-r p-4 flex flex-col space-y-4">
             
+            <Link href="/dashboard"
+            className="font-bold text-4xl">Conecta<span className="text-blue-600">+</span></Link>
+            <hr/>
             {/* SAUDAÇÃO PERSONALIZADA */}
             <h2 className="text-xl font-semibold text-gray-800">
                 Olá, {session?.user?.name?.split(' ')[0] || 'Visitante'}!
@@ -29,6 +32,8 @@ export function Sidebar() {
                 <Link href="/dashboard/profile" className="text-blue-600 hover:text-blue-800">
                     Perfil
                 </Link>
+
+                <Link href="/dashboard/listaDePins" className="text-blue-600 hover:text-blue-800">Meus locais</Link>
             </nav>
 
             {/* 💡 BOTÃO DE LOGOUT AQUI */}
@@ -39,7 +44,7 @@ export function Sidebar() {
                         className="w-full py-2 bg-zinc-800 text-white font-bold rounded-md hover:bg-red-600 transition-colors"
                     >
                         Sair (Logout)
-                        {/* Se estiver usando Lucide: <LogOut className="w-4 h-4 ml-2" /> */}
+                        
                     </button>
                 </div>
             )}

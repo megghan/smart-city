@@ -46,10 +46,11 @@ export async function POST(request: Request){
             longitude,
             descricao,
             tipoAcessibilidade,
-            cidade
+            cidade,
+            nome_local
         } = await request.json();
 
-        if (!latitude || !longitude || !descricao || !cidade) {
+        if (!latitude || !longitude || !descricao || !cidade || !nome_local) {
             return NextResponse.json({ message: "Dados incompletos." }, { status: 400 });
         }
 
@@ -59,7 +60,8 @@ export async function POST(request: Request){
                 latitude: parseFloat(latitude),
                 longitude: parseFloat(longitude),
                 descricao,
-                tipoAcessibilidade: tipoAcessibilidade || 'Geral',
+                nome_local,
+                tipoAcessibilidade,
                 cidade,
                 usuarioId: session.user.id, //vincula o pin ao usuario logado
             },

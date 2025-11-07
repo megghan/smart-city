@@ -3,6 +3,7 @@
 import dynamic from "next/dynamic";
 import { MapaDaCidade } from "./mapa";
 import { useEffect, useState, useCallback } from "react";
+import { PinAcessibilidade } from '@prisma/client';
 
 const MapaDinamico = dynamic<React.ComponentProps<typeof MapaDaCidade>>(
     () => import("./mapa").then((mod) => mod.MapaDaCidade),
@@ -12,17 +13,9 @@ const MapaDinamico = dynamic<React.ComponentProps<typeof MapaDaCidade>>(
     }
 );
 
-interface Pin {
-    id: string;
-    latitude: number;
-    longitude: number;
-    descricao: string;
-    tipoAcessibilidade: string;
-    cidade: string;
-}
 
 export function MapaLoader() {
-    const [pins, setPins] = useState<Pin[]>([]);
+    const [pins, setPins] = useState<PinAcessibilidade[]>([]);
     const [isLoading, setIsLoading] = useState(true);
 
     const fetchPins = useCallback(async ()=>{

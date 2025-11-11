@@ -3,6 +3,36 @@ import { getServerSession } from "next-auth";
 import prisma from "@/lib/prisma";
 import { authOptions } from "@/lib/auth";
 
+
+export async function GET(
+    request: Request,
+    { params }: { params: { pinId: string } }
+) {
+    const pinId = params.pinId;
+
+    try {
+        // Tenta buscar o Pin
+        const pin = await prisma.pinAcessibilidade.findUnique({
+            where: { id: pinId },
+        });
+
+        if (!pin) {
+            return NextResponse.json({ message: "Pin não encontrado." }, { status: 404 });
+        }
+
+        // Retorna o Pin para preencher o formulário no front-end
+        return NextResponse.json(pin, { status: 200 });
+
+    } catch (error) {
+        console.error('Erro ao buscar Pin por ID:', error);
+        return NextResponse.json(
+            { message: 'Erro interno ao buscar o Pin.' },
+            { status: 500 }
+        );
+    }
+}
+
+
 //fução delete
 export async function DELETE(
     request: Request,

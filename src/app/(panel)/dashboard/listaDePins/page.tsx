@@ -91,7 +91,7 @@ export default function ListaPinsDeUsuario() {
 
 
   return (
-    <div className="p-8">
+    <div className="p-8 bg-gradient-to-tl from-yellow-200 via-transparent to-green-50 min-h-screen overflow-hidden">
       <h1 className="text-3xl font-bold mb-6">📍 Meus Locais de Acessibilidade ({pins.length})</h1>
       
       {pins.length === 0 ? (

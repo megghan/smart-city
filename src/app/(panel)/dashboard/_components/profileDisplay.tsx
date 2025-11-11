@@ -55,17 +55,18 @@ export default function ProfileDisplay({ userData }: { userData: UserDataProps }
     };
 
     return (
-        <div className="p-8">
+        <div className="p-8 bg-gradient-to-tl from-yellow-200 via-transparent to-green-50 min-h-screen overflow-hidden">
             <h1 className="text-3xl font-bold mb-6">Meu Perfil</h1>
+            <hr/>
             
             {/* Exibição dos Dados e Botão "Alterar Dados" */}
             {!isEditing && (
-                <div className="mb-6">
+                <div className="mt-3 mb-6 flex flex-col align-top items-start gap-2 text-2xl">
                     <p className="text-gray-700">
-                        **Nome:** {userData.name}
+                       <span className='font-bold'>NOME: </span> {userData.name}
                     </p>
                     <p className="text-gray-700">
-                        **Email:** {userData.email}
+                        <span className='font-bold'>EMAIL: </span> {userData.email}
                     </p>
                     
                     <button
@@ -74,7 +75,7 @@ export default function ProfileDisplay({ userData }: { userData: UserDataProps }
                             setStatusMessage(''); // Limpa mensagens anteriores
                             setNewName(userData.name); // Define o input com o nome atual
                         }}
-                        className="mt-4 px-4 py-2 bg-yellow-500 text-white font-semibold rounded hover:bg-yellow-600 transition duration-150"
+                        className="mt-5 px-4 py-2 bg-yellow-500 text-white font-semibold rounded hover:bg-yellow-600 transition duration-150"
                     >
                         Alterar Dados
                     </button>

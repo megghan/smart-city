@@ -4,7 +4,7 @@ import { PrismaAdapter } from "@auth/prisma-adapter";
 import { AuthOptions } from "next-auth";
 import GitHubProvider from "next-auth/providers/github";
 import GoogleProvider from "next-auth/providers/google";
-// IMPORTANTE: Importamos o cliente Prisma que você criou
+// IMPORTANTE: Importamos o cliente Prisma
 import prisma from "./prisma"; 
 import { Adapter } from "next-auth/adapters";
 
@@ -23,6 +23,10 @@ export const authOptions: AuthOptions = {
     GoogleProvider({
       clientId: process.env.GOOGLE_CLIENT_ID!,
       clientSecret: process.env.GOOGLE_CLIENT_SECRET!,
+      authorization: {
+        params: {
+            scope: "openid email profile", 
+        },},
     }),
   ],
   

@@ -20,6 +20,7 @@ export const CreatePinDialog = ({ coords, open, onOpenChange, onPinCreated }: Cr
   const [formData, setFormData] = useState({
     nome_local: '',
     descricao: '',
+    endereco: '',
     tipoAcessibilidade: 'Geral', // Valor padrão, pode ser um Select/Dropdown
     cidade: 'Sorocaba'
   });
@@ -66,6 +67,7 @@ export const CreatePinDialog = ({ coords, open, onOpenChange, onPinCreated }: Cr
       setFormData({ // Reseta o formulário
           nome_local: '',
           descricao: '',
+          endereco:'',
           tipoAcessibilidade: 'Geral',
           cidade: 'Sorocaba'
       });
@@ -100,6 +102,18 @@ export const CreatePinDialog = ({ coords, open, onOpenChange, onPinCreated }: Cr
               onChange={handleChange}
               placeholder="Ex: Biblioteca Municipal"
               required // Tornar obrigatório
+            />
+          </div>
+
+          {/*ENDEREÇO */}
+          <div className="grid gap-2">
+            <Label htmlFor="endereco">Endereço (Rua e Número)</Label>
+            <Input
+              id="endereco"
+              name="endereco"
+              value={formData.endereco} // Lendo o novo estado
+              onChange={handleChange}
+              placeholder="Ex: Rua da Acessibilidade, 123"
             />
           </div>
           

@@ -17,20 +17,25 @@ export function PinPopupCard({ pin, onRatingSubmit }: PinPopupCardProps) {
     return (
         // O Card do shadcn/ui para organizar a informação
         <Card className="w-[280px] shadow-lg border-2 border-primary/20">
-            <CardHeader className="p-3">
+            <CardHeader className="p-3 pb-0">
                 <CardTitle className="text-lg leading-tight">
                     {pin.nome_local || "Local Não Nomeado"}
                 </CardTitle>
-                <CardDescription className="text-xs">
+                <CardDescription className="text-xs mb-0 p-0">
                     {pin.cidade} - Tipo: <Badge variant="secondary">{pin.tipoAcessibilidade}</Badge>
+                    {pin.endereco && (
+                    <p className="m-0 text-xs text-gray-500">
+                        📍 Endereço: {pin.endereco}
+                    </p>
+                )}
                 </CardDescription>
-            </CardHeader>
-            
-            <CardContent className="p-3 pt-0 text-sm">
-                <p className="mb-2 line-clamp-6">{pin.descricao}</p>
+            </CardHeader>            
+            <CardContent className="p-3 mt-0 pt-0 text-sm ">
+                
+                <p className="mb-2 line-clamp-6 mt-0.5 p-0">{pin.descricao}</p>
                 
                 
-                <div className="flex items-center space-x-2 mt-3">
+                <div className="flex items-center space-x-2 mt-0">
                     <RatingComponent 
                         initialRating={pin.nota_media}
                         pinId={pin.id}
